@@ -1,4 +1,7 @@
-Dopey
-=====
+Dopey.js
+========
 
-Dopey - A simple and lightweight micro templating script
+By @Luckypouet
+
+Dopey is a simple and lightweight micro templating script that support multilevel objects.
+It generates an HTML string containing updated templates with data supplied as parameter.
