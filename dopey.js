@@ -66,11 +66,12 @@
 		*/
 
 		var html = tpl.innerHTML || ((/^#|\.\w/g).test(tpl))? document.querySelector(tpl).innerHTML : document.getElementById(tpl).innerHTML,
-			data = (!data.length)? [data] : data || {},
+			data = data || {},
+			convert = (!data.length)? [data] : data,
 			output = '';
 
 		/* Iterate for each entry */
-		for(var i in data){ addTpl(data[i]); };
+		for(var i in convert){ addTpl(convert[i]); };
 
 		/* Return output string updated */
 		return output;
@@ -88,7 +89,7 @@
 		function getValue(set,path){
 			
 			var array = path.split('.'),
-				value = data[path] || (array.reduce)? array.reduce(function(obj,property){
+				value = set[path] || (array.reduce)? array.reduce(function(obj,property){
 					return obj[property] || {};
 				},set) : eval('set[\''+array.join('\'][\'')+'\']');
 
