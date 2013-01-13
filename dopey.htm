@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		
+		<meta charset="UTF-8" />
+		<title>Dopey - JavaScript Micro Templating Script</title>
+
+	</head>
+	<body>
+		
+		<div id="myDiv"></div>
+
+		<script type="text/dopey" id="tplExample">
+			<div class="item __config.css__">
+				<div class="title">__title__</div>
+				<p>__text__</p>
+			</div>
+		</script>
+
+		<script src="dopey.min.js"></script>
+		<script>
+			/* Data set */
+			var dataSet = [{
+				config:{
+					css:'custom'
+				},
+				title:'My title',
+				text:'My text'
+			},{
+				title:'My title 2',
+				text:'My text 2'
+			}];
+
+			/* Generate content */
+			document.getElementById('myDiv').innerHTML = dopey('tplExample',dataSet);
+
+		</script>
+
+	</body>
+</html>
